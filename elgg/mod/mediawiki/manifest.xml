@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest>
+        <field key="author" value="Kevin Jardine" />
+        <field key="version" value="0.9.0" />
+        <field key="description" value="Integration of Mediawiki within the Elgg interface" />
+        <field key="website" value="http://www.surevine.com/" />
+        <field key="copyright" value="(c) Surevine Limited 2009" />
+        <field key="licence" value="GNU Public License version 2" />
+        <field key="elgg_version" value="2008072701" />
+</plugin_manifest>
