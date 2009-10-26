@@ -11,7 +11,7 @@
 */
 
 
-if (false === function_exists('lcfirst'))
+if (FALSE === function_exists('lcfirst'))
 {
 	/**
 	 * Make a string's first character lowercase
@@ -28,7 +28,15 @@ if (false === function_exists('lcfirst'))
 }
 
 
-function mediawiki_vsort($original, $field, $descending = false)
+/**
+ * mediawiki_vsort 
+ * 
+ * @param array $original array to sort
+ * @param string $field name of sort field
+ * @param bool $descending sort descending?
+ * @return array sorted array
+ */
+function mediawiki_vsort($original, $field, $descending = FALSE)
 {
 	if (!$original)
 	{
@@ -96,11 +104,11 @@ function mediawiki_log_page_edit($page, $mediawiki_username, $edit_status)
  * 
  * @param int $entity group or user doing the watching
  * @param int $num The number of results to return (code supports at most 50)
- * @param boolean $minor If false returns only major edits
+ * @param boolean $minor If FALSE returns only major edits
  * 
  * @return array An array of objects describing edits
  */
-function mediawiki_get_watched_edits($entity, $num, $minor = true)
+function mediawiki_get_watched_edits($entity, $num, $minor = TRUE)
 {
 	$max_num = 50;
 	$edits = array();
@@ -123,7 +131,8 @@ function mediawiki_get_watched_edits($entity, $num, $minor = true)
 	else
 	{
 		// should be a personal watch then
-		$watches = get_entities_from_annotations("object", "mediawiki_watch", "personal", "yes", $entity->getGUID());
+		$watches = get_entities_from_annotations("object", "mediawiki_watch", "personal", "yes",
+													$entity->getGUID());
 	}
 
 	if ($watches)
@@ -143,7 +152,8 @@ function mediawiki_get_watched_edits($entity, $num, $minor = true)
 		{
 			if (!$minor)
 			{
-				$watch_edits = get_annotations($watch->getGUID(), "object", "mediawiki_watch", "edit", "major", 0, $max_num);
+				$watch_edits = get_annotations($watch->getGUID(), "object", "mediawiki_watch",
+												"edit", "major", 0, $max_num);
 			}
 			else
 			{
@@ -178,7 +188,7 @@ function mediawiki_get_watched_edits($entity, $num, $minor = true)
 		}
 	}
 
-	return array_slice(mediawiki_vsort($edits, 'update_time', true), 0, $num);
+	return array_slice(mediawiki_vsort($edits, 'update_time', TRUE), 0, $num);
 }
 
 
@@ -189,7 +199,7 @@ function mediawiki_get_watched_edits($entity, $num, $minor = true)
  * 
  * @param string $mediawiki_username
  * 
- * @return ElggUser|boolean An ElggUser or false if a corresponding user could not be found
+ * @return ElggUser|boolean An ElggUser or FALSE if a corresponding user could not be found
  */
 function mediawiki_get_user_by_username($mediwiki_username)
 {
@@ -211,7 +221,7 @@ function mediawiki_get_user_by_username($mediwiki_username)
 	}
 
 	// could not find the user, so report failure
-	return false;
+	return FALSE;
 }
 
 
@@ -244,6 +254,13 @@ function mediawiki_get_watchlist($page)
 }
 
 
+/**
+ * mediawiki_get_personal_watchlist 
+ * 
+ * @param string $page 
+ * @param int $user_guid GUID of user
+ * @return string yes or no
+ */
 function mediawiki_get_personal_watchlist($page, $user_guid)
 {
 	$watchlist = array();
@@ -252,7 +269,8 @@ function mediawiki_get_personal_watchlist($page, $user_guid)
 	if ($watch)
 	{
 		$watch = $watch[0];
-		$watch_option = get_annotations($watch->getGUID(), "object", "mediawiki_watch", "personal", "yes", $user_guid);
+		$watch_option = get_annotations($watch->getGUID(), "object", "mediawiki_watch",
+										"personal", "yes", $user_guid);
 
 		if ($watch_option)
 		{
@@ -273,7 +291,8 @@ function mediawiki_get_personal_watchlist($page, $user_guid)
  */
 function mediawiki_clear_group_watchlist($watch, $user_guid)
 {
-	$watched_groups = get_annotations($watch->getGUID(), "object", "mediawiki_watch", "group", "", $user_guid);
+	$watched_groups = get_annotations($watch->getGUID(), "object", "mediawiki_watch",
+										"group", "", $user_guid);
 
 	if ($watched_groups)
 	{
@@ -294,7 +313,8 @@ function mediawiki_clear_group_watchlist($watch, $user_guid)
  */
 function mediawiki_clear_personal_watchlist($watch, $user_guid)
 {
-	$watched = get_annotations($watch->getGUID(), "object", "mediawiki_watch", "personal", "", $user_guid);
+	$watched = get_annotations($watch->getGUID(), "object", "mediawiki_watch",
+								"personal", "", $user_guid);
 
 	if ($watched)
 	{
@@ -422,6 +442,13 @@ function mediawiki_set_personal_watchlist($page, $user_guid, $status)
 }
 
 
+/**
+ * mediawiki_create_watch_object 
+ * 
+ * @param string $page 
+ * @param int $user_guid 
+ * @return object
+ */
 function mediawiki_create_watch_object($page, $user_guid)
 {
 	$watch             = new ElggObject();
@@ -435,4 +462,3 @@ function mediawiki_create_watch_object($page, $user_guid)
 }
 
 
-?>

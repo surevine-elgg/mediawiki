@@ -17,12 +17,26 @@
 $wgExtensionFunctions[] = 'wfElggNotify';
 $wgExtensionCredits['other'][] = array('name' => 'Elgg notify', 'author' => 'Kevin Jardine', 'description' => 'Notifies the Elgg Mediawiki plugin when a page is updated.',);
 
+/**
+ * wfElggNotify 
+ * 
+ * @return void
+ */
 function wfElggNotify()
 {
 	global $wgHooks;
 	$wgHooks['ArticleSaveComplete'][] = 'wfElggNotifyCurlUpdate';
 }
 
+/**
+ * wfElggNotifyCurlUpdate 
+ * 
+ * @param object $article 
+ * @param object $user 
+ * @param bool $isMinor 
+ * @param bool $isWatch 
+ * @return bool
+ */
 function wfElggNotifyCurlUpdate($article, $user, $text, $summary, $isMinor, $isWatch, $section, $flags, $revision)
 {
 	if ($isMinor)

@@ -16,12 +16,11 @@ require_once(dirname(dirname(dirname(__FILE__))) . "/engine/start.php");
 
 $default_css = elgg_view("mediawiki/topbar_css");
 
-header("Content-type: text/css", true);
-header('Expires: ' . date('r', time() + 864000), true);
-header("Pragma: public", true);
-header("Cache-Control: public", true);
+header("Content-type: text/css", TRUE);
+header('Expires: ' . date('r', time() + 864000), TRUE);
+header("Pragma: public", TRUE);
+header("Cache-Control: public", TRUE);
 header("Content-Length: " . strlen($default_css));
 
 echo $default_css;
 
-?>

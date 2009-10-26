@@ -11,6 +11,11 @@
 */
 
 
+/**
+ * mediawiki_init 
+ * 
+ * @return void
+ */
 function mediawiki_init()
 {
 	// Load system configuration
@@ -19,7 +24,7 @@ function mediawiki_init()
 	// Load the language files
 	register_translations($CONFIG->pluginspath . "mediawiki/languages/");
 	
-	add_group_tool_option('mediawiki_minor_edits', elgg_echo('mediawiki:enable_minor_edits'), false);
+	add_group_tool_option('mediawiki_minor_edits', elgg_echo('mediawiki:enable_minor_edits'), FALSE);
 	
 	// add to the css
 	extend_view('css', 'mediawiki/css');
@@ -32,10 +37,16 @@ function mediawiki_init()
 	}
 	
 	// add a widget
-	add_widget_type('mediawiki', elgg_echo("mediawiki:widget_title"), elgg_echo('mediawiki:widget:description'));
+	add_widget_type('mediawiki', elgg_echo("mediawiki:widget_title"),
+					elgg_echo('mediawiki:widget:description'));
 }
 
 
+/**
+ * mediawiki_pagesetup 
+ * 
+ * @return void
+ */
 function mediawiki_pagesetup()
 {
 	// add to group profile page
@@ -65,7 +76,6 @@ register_elgg_event_handler('init', 'system', 'mediawiki_init');
 register_elgg_event_handler('pagesetup', 'system', 'mediawiki_pagesetup');
 
 global $CONFIG;
-register_action("mediawiki/watch", false, $CONFIG->pluginspath . "mediawiki/actions/watch.php");
-register_action("logout", false, $CONFIG->pluginspath . "mediawiki/actions/logout.php");
+register_action("mediawiki/watch", FALSE, $CONFIG->pluginspath . "mediawiki/actions/watch.php");
+register_action("logout", FALSE, $CONFIG->pluginspath . "mediawiki/actions/logout.php");
 
-?>

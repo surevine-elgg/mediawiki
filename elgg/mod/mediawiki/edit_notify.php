@@ -25,4 +25,3 @@ mediawiki_log_page_edit($page, $mediawiki_username, $edit_status);
 
 echo 'OK';
 
-?>

@@ -21,4 +21,3 @@ $page = get_input('page', '');
 
 echo elgg_view('mediawiki/get_watch_form_groups', array('page' => $page));
 
-?>

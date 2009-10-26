@@ -20,4 +20,3 @@ require_once(dirname(__FILE__) . "/models/model.php");
 $watchlist = mediawiki_get_watched_edits(88, 10);
 echo elgg_view('mediawiki/watchlist', array('watchlist' => $watchlist));
 
-?>

@@ -48,8 +48,11 @@ if (!$value)
 }
 
 echo '<label>' . elgg_echo('mediawiki:widget:setting:minor_edits:description') . '<br />';
-$options = array(elgg_echo('mediawiki:widget:setting:yes') => 'yes', elgg_echo('mediawiki:widget:setting:no') => 'no');
-echo elgg_view('input/radio', array('internalname' => 'params[minor_edits]', 'value' => $value, 'options' => $options));
+
+$options = array(elgg_echo('mediawiki:widget:setting:yes') => 'yes',
+					elgg_echo('mediawiki:widget:setting:no') => 'no');
+
+echo elgg_view('input/radio', array('internalname' => 'params[minor_edits]',
+									'value' => $value, 'options' => $options));
 echo '</label>';
 
-?>

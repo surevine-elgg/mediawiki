@@ -101,7 +101,7 @@ END;
 	echo elgg_view('input/hidden', array('internalname' => 'page', 'value' => $page));
 	echo '<br />';
 
-	echo elgg_view('input/submit', array('internalname' => 'submit_button', 'value' => elgg_echo('save')));
+	echo elgg_view('input/submit', array('internalname' => 'submit_button',
+											'value' => elgg_echo('save')));
 	echo "</form>";
 }
-?>

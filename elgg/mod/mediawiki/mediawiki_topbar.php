@@ -101,4 +101,3 @@ $.fn.elgg_topbardropdownmenu = function(options)
 
 <?php
 echo elgg_view('page_elements/elgg_topbar');
-?>

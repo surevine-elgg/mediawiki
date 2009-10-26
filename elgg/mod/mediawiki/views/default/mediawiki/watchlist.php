@@ -19,11 +19,11 @@ $mediawiki_url = get_plugin_setting('url', 'mediawiki');
 
 if ($vars['entity']->mediawiki_minor_edits_enable == "yes")
 {
-	$minor = true;
+	$minor = TRUE;
 }
 else
 {
-	$minor = false;
+	$minor = FALSE;
 }
 
 $watchlist = mediawiki_get_watched_edits($vars['entity'], 10, $minor);
@@ -37,7 +37,8 @@ if ($watchlist)
 
 	foreach ($watchlist as $item)
 	{
-		$body .= elgg_view('mediawiki/watch_item', array('mediawiki_url' => $mediawiki_url, 'item' => $item));
+		$body .= elgg_view('mediawiki/watch_item',
+							array('mediawiki_url' => $mediawiki_url, 'item' => $item));
 	}
 
 	$body .= '</div>';
@@ -47,4 +48,3 @@ if ($watchlist)
 
 echo $body;
 
-?>

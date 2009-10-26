@@ -29,4 +29,3 @@ global $CONFIG;
 
 forward($CONFIG->wwwroot . 'mod/mediawiki/logout.php');
 
-?>

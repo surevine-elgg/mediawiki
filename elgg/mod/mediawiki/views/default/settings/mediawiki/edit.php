@@ -17,7 +17,8 @@ $mediawiki_url = get_plugin_setting('url', 'mediawiki');
 
 $body .= elgg_echo('mediawiki:url:settings:title');
 $body .= '<br />';
-$body .= elgg_view('input/text', array('internalname' => 'params[url]', 'value' => $mediawiki_url));
+$body .= elgg_view('input/text', array('internalname' => 'params[url]',
+										'value' => $mediawiki_url));
 
 $body .= '<br /><br />';
 
@@ -25,7 +26,8 @@ $mediawiki_proxyurl = get_plugin_setting('proxyurl', 'mediawiki');
 
 $body .= elgg_echo('mediawiki:proxyurl:settings:title');
 $body .= '<br />';
-$body .= elgg_view('input/text', array('internalname' => 'params[proxyurl]', 'value' => $mediawiki_proxyurl));
+$body .= elgg_view('input/text', array('internalname' => 'params[proxyurl]',
+										'value' => $mediawiki_proxyurl));
 
 $body .= '<br /><br />';
 
@@ -33,7 +35,8 @@ $mediawiki_digest_interval = get_plugin_setting('digest_interval', 'mediawiki');
 
 $body .= elgg_echo('mediawiki:digest_interval:settings:title');
 $body .= '<br />';
-$body .= elgg_view('input/text', array('internalname' => 'params[digest_interval]', 'value' => $mediawiki_digest_interval));
+$body .= elgg_view('input/text', array('internalname' => 'params[digest_interval]',
+										'value' => $mediawiki_digest_interval));
 
 $body .= '<br /><br />';
 
@@ -55,4 +58,3 @@ $body .= elgg_view('input/radio', array('internalname' => 'params[group_profile_
 
 echo $body;
 
-?>

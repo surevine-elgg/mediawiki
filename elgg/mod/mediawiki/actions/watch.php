@@ -23,15 +23,14 @@ mediawiki_set_group_watchlist($page, $group_watchlist);
 
 if (is_array($personal_watchlist) && ($personal_watchlist[0] == 'yes'))
 {
-	$status = true;
+	$status = TRUE;
 }
 else
 {
-	$status = false;
+	$status = FALSE;
 }
 
 mediawiki_set_personal_watchlist($page, get_loggedin_userid(), $status);
 
 echo elgg_echo('mediawiki:watch_form:response_message');
 
-?>

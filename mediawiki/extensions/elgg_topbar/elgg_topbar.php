@@ -17,6 +17,11 @@ $wgExtensionFunctions[] = 'wfElggTopbar';
 $wgExtensionCredits['other'][] = array('name' => 'Elgg topbar', 'author' => 'Kevin Jardine', 'description' => 'Adds the Elgg topbar to each page.',);
 
 
+/**
+ * wfElggTopbar 
+ * 
+ * @return void
+ */
 function wfElggTopbar()
 {
 	global $wgHooks, $wgUser, $wgCacheEpoch;
@@ -30,6 +35,13 @@ function wfElggTopbar()
 }
 
 
+/**
+ * wfElggTopbarAddJS 
+ * 
+ * @param mixed $skin 
+ * @param string $text variable in which to return script
+ * @return bool
+ */
 function wfElggTopbarAddJS($skin, &$text)
 {
 	global $wgScriptPath, $wgCacheEpoch, $wgUser;

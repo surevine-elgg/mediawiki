@@ -24,11 +24,11 @@ if (!$num)
 
 if ($vars['entity']->minor_edits == 'yes')
 {
-	$minor = true;
+	$minor = TRUE;
 }
 else
 {
-	$minor = false;
+	$minor = FALSE;
 }
 
 $mediawiki_url = get_plugin_setting('url', 'mediawiki');
@@ -48,7 +48,8 @@ if (is_array($watchlist) && sizeof($watchlist) > 0)
 
 	foreach ($watchlist as $item)
 	{
-		$body .= elgg_view('mediawiki/watch_item', array('mediawiki_url' => $mediawiki_url, 'item' => $item));
+		$body .= elgg_view('mediawiki/watch_item', array('mediawiki_url' => $mediawiki_url,
+															'item' => $item));
 	}
 
 	$body .= '</div>';
@@ -57,4 +58,3 @@ if (is_array($watchlist) && sizeof($watchlist) > 0)
 	echo $body;
 }
 
-?>

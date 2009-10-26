@@ -20,8 +20,14 @@ $body .= '<div class="river_object">';
 $body .= '<div class="river_object_mediawiki">';
 $body .= '<div class="river_update">';
 $body .= '<div class="river_object_mediawiki_update">';
+
 $user  = get_entity($item->user_guid);
-$body .= '<p><a href="' . $user->getUrl() . '">' . $user->name . '</a> ' . elgg_echo('mediawiki:has_made_change') . ' <a href="' . $mediawiki_url . 'index.php/' . $item->page . '"> ' . $item->page . '</a> ';
+
+$body .= '<p><a href="' . $user->getUrl() . '">' . $user->name . '</a> ';
+$body .= elgg_echo('mediawiki:has_made_change');
+$body .= ' <a href="' . $mediawiki_url . 'index.php/' . $item->page . '"> ';
+$body .= $item->page . '</a> ';
+
 $body .= '<span class="river_item_time">(' . friendly_time($item->update_time) . ')</span></p>';
 $body .= '</div>';
 $body .= '</div>';
@@ -31,4 +37,3 @@ $body .= '</div>';
 
 echo $body;
 
-?>
